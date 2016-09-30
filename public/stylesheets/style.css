@@ -1,11 +1,29 @@
+/*$navBackground*/
+/*$textColor: #*/
+
 body {
   width:100vw;
   height:100vh;
   background-color: white;
+  background-color: #1b2638;
 }
 
 .nav {
   height: 20vh;
+  background-color: #2d3e5c;
+  color: #b3bfd2;
+}
+
+h1 {
+  font-size: 1.3em;
+  color: #b3bfd2;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 1em;
+  color: #b3bfd2;
+  font-weight: normal;
 }
 /*
 .pure-menu.pure-menu-heading {
