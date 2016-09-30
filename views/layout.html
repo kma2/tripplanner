@@ -1,0 +1,45 @@
+<html>
+
+<!-- dev dependencies -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="stylesheet" href="/pure/grids-responsive-min.css">
+  <link rel="stylesheet" href="/pure/grids-min.css">
+  <link rel="stylesheet" href="/pure/pure-min.css">
+  <link rel="stylesheet" href="/normalize-css/normalize.css">
+  <link rel="stylesheet" href="/public/stylesheets/style.css">
+</head>
+
+<!-- Google Maps API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvwY6xhuZ3tT8XKt45DnAkszabiC-zuZo&sensor=true"></script>
+<script src="/public/googlemaps.js"></script>
+
+  <!-- nav-bar -->
+  <div class="nav pure-menu pure-menu-horizontal">
+     <ul class="pure-menu-list">
+         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Trip Planner</a></li>
+         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
+         <li class="pure-menu-item"><a href="#" class="pure-menu-link">About</a></li>
+         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contact</a></li>
+     </ul>
+  </div>
+  <!-- nav -->
+
+{% block content %}
+
+{% endblock %}
+
+
+<script src="/jquery/dist/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    initialize_gmaps();
+});
+</script>
+
+
+</html>

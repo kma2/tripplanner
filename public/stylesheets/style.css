@@ -1,0 +1,17 @@
+body {
+  width:100vw;
+  height:100vh;
+  background-color: white;
+}
+
+.nav {
+  height: 20vh;
+}
+/*
+.pure-menu.pure-menu-heading {
+  float: left;
+}
+
+.pure-menu.pure-menu-list {
+  float: right;
+}*/
