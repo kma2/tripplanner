@@ -1,5 +1,47 @@
+$fontColor: #b3bfd2;
 
+html {
+  font-family: 'Proxima Nova Soft', 'Helvetica Neue', Helvetica, sans-serif;
+}
 
 body {
+  width:100vw;
+  height:100vh;
   background-color: white;
+  background-color: #1b2638;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.pure-g {
+  height: 92vh;
+}
+
+.nav {
+  height: 8vh;
+  background-color: #2d3e5c;
+}
+
+.pure-menu-link {
+  color: $fontColor;
+  padding-top: 0.8em;
+}
+
+h1 {
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  color: $fontColor;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1em;
+  letter-spacing: 1px;
+  color: $fontColor;
+  font-weight: normal;
+}
+
+.pure-u-sm-1 {
+  padding: 5% 7%;
 }

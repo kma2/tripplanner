@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "start:dev": "nodemon -e html,css,js index.js",
-    "start:production": "npm run start:dev",
+    "start": "npm run start:dev",
     "build-css": "node-sass -w -r assets/stylesheets -o public/stylesheets"
   },
   "keywords": [

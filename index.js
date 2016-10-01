@@ -37,13 +37,12 @@ app.use(function(req, res, next) {
 });
 
 // handle all errors (anything passed into `next()`)
-// app.use(function(err, req, res, next) {
-// 	res.status(err.status || 500);
-// 	console.error(err);
-// 	res.render(
-//
-// 	);
-// })
+app.use(function(err, req, res, next) {
+	res.status(err.status || 500);
+	console.error(err);
+	// res.render(
+	// );
+});
 //
 // Promise.all([Place.sync(), Hotel.sync(), Restaurant.sync(), Activity.sync()])
 
