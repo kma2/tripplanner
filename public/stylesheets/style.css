@@ -17,20 +17,44 @@ body {
   background-color: #2d3e5c; }
 
 .pure-menu-link {
-  color: #b3bfd2;
+  color: #DDE3F0;
   padding-top: 0.8em; }
+
+.pure-menu-link:hover {
+  color: white;
+  background-color: #2d3e5c; }
+
+.styled-select {
+  background-color: #2d3e5c;
+  height: 29px;
+  overflow: hidden;
+  width: 240px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px; }
+
+.styled-select select {
+  background: transparent;
+  border: none;
+  font-size: 0.8em;
+  height: 29px;
+  padding: 5px;
+  width: 268px;
+  color: #DDE3F0;
+  letter-spacing: 1px; }
 
 h1 {
   font-size: 0.8em;
   letter-spacing: 1px;
-  color: #b3bfd2;
+  color: #DDE3F0;
   font-weight: normal;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  letter-spacing: 1px; }
 
 h2 {
   font-size: 1em;
   letter-spacing: 1px;
-  color: #b3bfd2;
+  color: #DDE3F0;
   font-weight: normal; }
 
 .pure-u-sm-1 {

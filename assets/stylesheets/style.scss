@@ -1,4 +1,5 @@
-$fontColor: #b3bfd2;
+$fontColor: #DDE3F0;
+$navBarColor: #2d3e5c;
 
 html {
   font-family: 'Proxima Nova Soft', 'Helvetica Neue', Helvetica, sans-serif;
@@ -19,12 +20,39 @@ body {
 
 .nav {
   height: 8vh;
-  background-color: #2d3e5c;
+  background-color: $navBarColor;
 }
 
 .pure-menu-link {
   color: $fontColor;
   padding-top: 0.8em;
+}
+
+.pure-menu-link:hover {
+  color: white;
+  background-color: $navBarColor;
+}
+
+// drop down menu styling
+.styled-select {
+   background-color: $navBarColor;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   border-radius: 3px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 0.8em;
+   height: 29px;
+   padding: 5px;
+   width: 268px;
+   color: $fontColor;
+   letter-spacing: 1px;
 }
 
 h1 {
@@ -33,6 +61,7 @@ h1 {
   color: $fontColor;
   font-weight: normal;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 h2 {
