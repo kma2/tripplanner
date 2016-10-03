@@ -23,8 +23,8 @@ app.get('/', function(req,res,next) {
 	Promise.all([Hotel.findAll({}), Activity.findAll({}), Restaurant.findAll({})])
 	.spread(function(hotel_result, activity_result, restaurant_result) {
 		res.render('basic_template', { hotels: hotel_result,
-																	 restaurants: activity_result,
-																	 activities: restaurant_result
+																	 restaurants: restaurant_result,
+																	 activities: activity_result
 																 });
 	});
 });
@@ -37,15 +37,12 @@ app.use(function(req, res, next) {
 });
 
 // handle all errors (anything passed into `next()`)
-// app.use(function(err, req, res, next) {
-// 	res.status(err.status || 500);
-// 	console.error(err);
-// 	res.render(
-//
-// 	);
-// })
-//
-// Promise.all([Place.sync(), Hotel.sync(), Restaurant.sync(), Activity.sync()])
+app.use(function(err, req, res, next) {
+	res.status(err.status || 500);
+	console.error(err);
+	// res.render(
+	// );
+});
 
 
 app.listen(8080, function() {

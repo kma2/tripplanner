@@ -1,5 +1,86 @@
+$fontColor: #DDE3F0;
+$navBarColor: #2d3e5c;
+$bodyColor: #1b2638;
 
+html {
+  font-family: 'Proxima Nova Soft', 'Helvetica Neue', Helvetica, sans-serif;
+}
 
 body {
-  background-color: white;
+  width:100vw;
+  height:100vh;
+  background-color: $bodyColor;
+  overflow-x: hidden;
+}
+
+.pure-g {
+  height: 92vh;
+}
+
+.nav {
+  height: 8vh;
+  background-color: $navBarColor;
+  font-size: 1.2em;
+}
+
+.pure-menu-link {
+  color: $fontColor;
+  padding-top: 0.9em;
+}
+
+.pure-menu-link:hover {
+  color: white;
+  text-decoration: none;
+  background-color: $bodyColor;
+}
+
+// drop down menu styling
+.styled-select {
+  background-color: $navBarColor;
+  height: 29px;
+  overflow: hidden;
+  width: 85%;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.styled-select select {
+  background: transparent;
+  border: none;
+  font-size: 0.8em;
+  height: 29px;
+  padding: 5px;
+  width: 95%;
+  color: $fontColor;
+  letter-spacing: 1px;
+}
+
+button.add {
+//   border-radius: 25px;
+  height: 2%;
+  width: 2%;
+//   background-color: $fontColor;
+//   font-color: white;
+  // display: inline-block;
+}
+
+h1 {
+  font-size: 0.8em;
+  letter-spacing: 1.5px;
+  color: $fontColor;
+  font-weight: normal;
+  text-transform: uppercase;
+  line-height: 0%;
+}
+
+h2 {
+  font-size: 1em;
+  letter-spacing: 1px;
+  color: $fontColor;
+  font-weight: normal;
+}
+
+.pure-u-sm-1 {
+  padding: 5% 10%;
 }

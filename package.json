@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "start:dev": "nodemon -e html,css,js index.js",
-    "start:production": "npm run start:dev",
+    "start": "npm run start:dev",
     "build-css": "node-sass -w -r assets/stylesheets -o public/stylesheets"
   },
   "keywords": [
@@ -19,6 +19,7 @@
   "dependencies": {
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
     "nunjucks": "^2.5.2",
