@@ -43,8 +43,6 @@ app.use(function(err, req, res, next) {
 	// res.render(
 	// );
 });
-//
-// Promise.all([Place.sync(), Hotel.sync(), Restaurant.sync(), Activity.sync()])
 
 
 app.listen(8080, function() {
