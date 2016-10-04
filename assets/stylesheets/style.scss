@@ -1,5 +1,6 @@
 $fontColor: #DDE3F0;  // light blue
 $navBarColor: #2d3e5c; // dark blue
+$clickedColor: #273348;
 $bodyColor: #1b2638; // deep dark blue
 
 html {
@@ -8,13 +9,18 @@ html {
 
 body {
   width:100vw;
-  height:120vh;
+  height: 100vh;
   background-color: $bodyColor;
   overflow-x: hidden;
 }
 
 .pure-g {
-  height: 112vh;
+
+}
+
+button {
+  padding: 0 !important;
+  &:hover { background-color: $clickedColor }
 }
 
 .pure-u-sm-1 {
@@ -23,10 +29,19 @@ body {
 
 // navigation bar and links
 .nav {
-  height: 8vh;
+  height: 50px;
   background-color: $navBarColor;
   font-size: 1.2em;
   letter-spacing: 1.5px;
+}
+
+#map-canvas{
+  height:92vh;
+}
+
+.itinerary {
+  height:92vh;
+  overflow-y:scroll;
 }
 
 .pure-menu-list {
@@ -99,4 +114,27 @@ h2 {
     letter-spacing: 1.5px;
     color: $fontColor;
     font-weight: normal;
+}
+
+
+
+
+// pagination
+
+ul.pagination {
+   display: inline-block;
+   padding-top: 10%;
+   margin: 0;
+   border-radius: 5px;
+}
+
+ul.pagination li {
+   display: inline;
+}
+
+ul.pagination li a {
+   color: $fontColor;
+   background: $navBarColor;
+   float: left;
+   text-decoration: none;
 }

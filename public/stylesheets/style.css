@@ -3,21 +3,30 @@ html {
 
 body {
   width: 100vw;
-  height: 120vh;
+  height: 100vh;
   background-color: #1b2638;
   overflow-x: hidden; }
 
-.pure-g {
-  height: 112vh; }
+button {
+  padding: 0 !important; }
+  button:hover {
+    background-color: #273348; }
 
 .pure-u-sm-1 {
   padding: 5% 10%; }
 
 .nav {
-  height: 8vh;
+  height: 50px;
   background-color: #2d3e5c;
   font-size: 1.2em;
   letter-spacing: 1.5px; }
+
+#map-canvas {
+  height: 92vh; }
+
+.itinerary {
+  height: 92vh;
+  overflow-y: scroll; }
 
 .pure-menu-list {
   padding-left: 2%; }
@@ -77,3 +86,18 @@ h2 {
   letter-spacing: 1.5px;
   color: #DDE3F0;
   font-weight: normal; }
+
+ul.pagination {
+  display: inline-block;
+  padding-top: 10%;
+  margin: 0;
+  border-radius: 5px; }
+
+ul.pagination li {
+  display: inline; }
+
+ul.pagination li a {
+  color: #DDE3F0;
+  background: #2d3e5c;
+  float: left;
+  text-decoration: none; }
