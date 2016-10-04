@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="pure-g">
+
+  <!-- Google Maps -->
+  <div class="pure-u-sm-1 pure-u-lg-3-4" id="map-canvas"></div>
+
+  <!-- Sidebar -->
+  <div class="pure-u-sm-1 pure-u-lg-1-4 itinerary">
+
+    <!-- Select options -->
+    <div class="pure-u-sm-1 itineraryPanel">
+      <h1> Pick Your Delight </h1><hr>
+
+      <div id="hotelSelect">
+          <h2>Hotels</h2>
+          <div class="styled-select">
+            <select>
+              <!-- option tags -->
+            </select>
+          </div>
+          <button type="button" class="btn btn-info btn-circle add"><i class="glyphicon glyphicon-plus"></i></button>
+      </div>
+
+      <div id="restaurantSelect">
+          <h2> Restaurants </h2>
+          <div class="styled-select">
+            <select>
+              <!-- option tags -->
+            </select>
+          </div>
+          <button type="button" class="btn btn-info btn-circle add"><i class="glyphicon glyphicon-plus"></i></button>
+      </div>
+
+
+      <div id="activitiesSelect">
+          <h2> Activities </h2>
+          <div class="styled-select">
+            <select>
+              <!-- option tags -->
+            </select>
+          </div>
+          <button type="button" class="btn btn-info btn-circle add"><i class="glyphicon glyphicon-plus"></i></button>
+    </div>
+
+    </div>
+
+    <!-- Custom itinerary -->
+    <div class="pure-u-sm-1 itineraryPanel">
+      <h1>Your Itinerary</h1><hr>
+
+      <div class="hotel-itinerary">
+          <h2>My Hotel</h2>
+      </div>
+      
+      <div class="restaurant-itinerary">
+          <h2>My Restaurants</h2>
+      </div>
+
+      <div class="activities-itinerary">
+          <h2>My Activities</h2>
+      </div>
+
+
+    <!-- pagination -->
+     <nav aria-label="Page navigation">
+       <ul class="pagination pagination-sm">
+         <li>
+           <a href="#" aria-label="Previous">
+             <span aria-hidden="true">&laquo;</span>
+           </a>
+         </li>
+         <li><a href="#">1</a></li>
+         <li><a href="#">2</a></li>
+         <li><a href="#">3</a></li>
+         <li><a href="#">4</a></li>
+         <li><a href="#">5</a></li>
+         <li>
+           <a href="#" aria-label="Next">
+             <span aria-hidden="true">&raquo;</span>
+           </a>
+         </li>
+       </ul>
+     </nav>
+
+    </div> <!-- end of itineraries pane-->
+  </div> <!-- end of sidebar -->
+</div> <!-- end of html -->
+
+<!-- makes JSON data from the backend available as JS arrays on frontend page-->
+<script>
+  var hotelsClient = {{ hotels | dump | safe }};
+  var restaurantsClient = {{ restaurants | dump | safe }};
+  var activitiesClient = {{ activities | dump | safe }};
+</script>
+<!-- <script src="./frontend.js"></script> -->
+
+{% endblock %}
