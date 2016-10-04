@@ -15,17 +15,21 @@ body {
   overflow-y: hidden;
 }
 
-.pure-g {
-
-}
-
 button {
   padding: 0 !important;
   &:hover { background-color: $clickedColor }
 }
 
-.pure-u-sm-1 {
-  padding: 5% 10%;
+// the ENTIRE right panel
+.pure-u-sm-1.itinerary {
+  height:92vh;
+  overflow-y:scroll;
+  padding: 2% 3%;
+}
+
+// each sub-panel within the right panel
+.pure-u-sm-1.itineraryPanel {
+    padding-bottom: 10%;
 }
 
 // navigation bar and links
@@ -38,11 +42,6 @@ button {
 
 #map-canvas{
   height:92vh;
-}
-
-.itinerary {
-  height:92vh;
-  overflow-y:scroll;
 }
 
 .pure-menu-list {
@@ -117,15 +116,14 @@ h2 {
     font-weight: normal;
 }
 
-
-
+hr {
+    margin-top: 2px;
+}
 
 // pagination
-
 ul.pagination {
    display: inline-block;
    padding-top: 10%;
-   padding-bottom: 10%;
    margin: 0;
    border-radius: 5px;
 }

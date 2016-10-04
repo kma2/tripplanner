@@ -13,8 +13,13 @@ button {
   button:hover {
     background-color: #273348; }
 
-.pure-u-sm-1 {
-  padding: 5% 10%; }
+.pure-u-sm-1.itinerary {
+  height: 92vh;
+  overflow-y: scroll;
+  padding: 2% 3%; }
+
+.pure-u-sm-1.itineraryPanel {
+  padding-bottom: 10%; }
 
 .nav {
   height: 50px;
@@ -24,10 +29,6 @@ button {
 
 #map-canvas {
   height: 92vh; }
-
-.itinerary {
-  height: 92vh;
-  overflow-y: scroll; }
 
 .pure-menu-list {
   padding-left: 2%; }
@@ -88,10 +89,12 @@ h2 {
   color: #DDE3F0;
   font-weight: normal; }
 
+hr {
+  margin-top: 2px; }
+
 ul.pagination {
   display: inline-block;
   padding-top: 10%;
-  padding-bottom: 10%;
   margin: 0;
   border-radius: 5px; }
 
