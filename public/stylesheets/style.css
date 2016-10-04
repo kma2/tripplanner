@@ -3,17 +3,24 @@ html {
 
 body {
   width: 100vw;
-  height: 100vh;
+  height: 120vh;
   background-color: #1b2638;
   overflow-x: hidden; }
 
 .pure-g {
-  height: 92vh; }
+  height: 112vh; }
+
+.pure-u-sm-1 {
+  padding: 5% 10%; }
 
 .nav {
   height: 8vh;
   background-color: #2d3e5c;
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  letter-spacing: 1.5px; }
+
+.pure-menu-list {
+  padding-left: 2%; }
 
 .pure-menu-link {
   color: #DDE3F0;
@@ -26,40 +33,47 @@ body {
 
 .styled-select {
   background-color: #2d3e5c;
-  height: 29px;
+  height: 28px;
   overflow: hidden;
-  width: 85%;
+  width: 80%;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  border-radius: 3px; }
+  border-radius: 3px;
+  display: inline-block; }
 
 .styled-select select {
   background: transparent;
   border: none;
   font-size: 0.8em;
-  height: 29px;
-  padding: 5px;
+  height: 30px;
   width: 95%;
   color: #DDE3F0;
   letter-spacing: 1px; }
 
-button.add {
-  height: 2%;
-  width: 2%; }
+.btn.btn-info.btn-circle {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #2d3e5c;
+  border: none;
+  color: #DDE3F0;
+  vertical-align: top;
+  margin-left: 3%; }
+
+.glyphicon {
+  font-size: 0.7em; }
 
 h1 {
-  font-size: 0.8em;
+  font-size: 0.9em;
   letter-spacing: 1.5px;
   color: #DDE3F0;
   font-weight: normal;
   text-transform: uppercase;
-  line-height: 0%; }
+  line-height: 0%;
+  margin-top: 5%; }
 
 h2 {
   font-size: 1em;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   color: #DDE3F0;
   font-weight: normal; }
-
-.pure-u-sm-1 {
-  padding: 5% 10%; }

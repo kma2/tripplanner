@@ -2,72 +2,83 @@
 
 {% block content %}
 
-  <div class="pure-g">
+<div class="pure-g">
 
-    <div class="pure-u-3-4" id="map-canvas"></div>
+  <!-- Google Maps -->
+  <div class="pure-u-3-4" id="map-canvas"></div>
 
-    <div class="pure-u-1-4">
+  <!-- Sidebar -->
+  <div class="pure-u-1-4">
 
-      <div class="pure-u-sm-1">
-        <h1> Pick Your Delight </h1><hr>
+    <!-- Select options -->
+    <div class="pure-u-sm-1">
+      <h1> Pick Your Delight </h1><hr>
 
-        <h2>Hotels</h2>
-        <div class="styled-select">
-          <select>
-            {% for hotel in hotels %}
-            <option value="{{ hotel.id }}"> {{ hotel.name }} </option>
-            {% endfor %}
-          </select>
-        </div>
-
-
-        <h2> Restaurants </h2>
-        <div class="styled-select">
-          <select>
-            {% for restaurant in restaurants %}
-            <option value="{{ restaurant.id }}"> {{ restaurant.name }} </option>
-            {% endfor %}
-          </select>
-        </div>
-
-        <h2> Activities </h2>
-        <div class="styled-select">
-          <select>
-            {% for activity in activities %}
-            <option value="{{ activity.id }}"> {{ activity.name }} </option>
-            {% endfor %}
-          </select>
-        </div>
+      <h2>Hotels</h2>
+      <div class="styled-select">
+        <select>
+          {% for hotel in hotels %}
+          <option value="{{ hotel.id }}"> {{ hotel.name }} </option>
+          {% endfor %}
+        </select>
       </div>
+      <button type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-plus"></i></button>
 
 
-
-      <div class="pure-u-sm-1">
-        <h1>Your Itinerary</h1><hr>
-
-        <h2>My Hotel</h2>
-        <div class="styled-select">
-          <select>
-            <option value="some hotel"> Waldorf Astoria </option>
-          </select>
-        </div>
-
-        <h2>My Restaurants</h2>
-        <div class="styled-select">
-          <select>
-            <option value="some restaurant"> Saigon Shack </option>
-          </select>
-        </div>
-
-        <h2>My Activities</h2>
-        <div class="styled-select">
-          <select>
-            <option value="some activity"> Governor's island kayaking </option>
-          </select>
-        </div>
+      <h2> Restaurants </h2>
+      <div class="styled-select">
+        <select>
+          {% for restaurant in restaurants %}
+          <option value="{{ restaurant.id }}"> {{ restaurant.name }} </option>
+          {% endfor %}
+        </select>
       </div>
+      <button type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-plus"></i></button>
+
+      <h2> Activities </h2>
+      <div class="styled-select">
+        <select>
+          {% for activity in activities %}
+          <option value="{{ activity.id }}"> {{ activity.name }} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-plus"></i></button>
 
     </div>
 
-  </div>
+    <!-- Custom itinerary -->
+    <div class="pure-u-sm-1">
+      <h1>Your Itinerary</h1><hr>
+
+      <h2>My Hotel</h2>
+      <div class="styled-select">
+        <select>
+          <option value="some hotel"> Waldorf Astoria </option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-minus"></i></button>
+
+      <h2>My Restaurants</h2>
+      <div class="styled-select">
+        <select>
+          <option value="some restaurant"> Saigon Shack </option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-minus"></i></button>
+
+      <h2>My Activities</h2>
+      <div class="styled-select">
+        <select>
+          <option value="some activity"> Governor's island kayaking </option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-minus"></i></button>
+
+    </div> <!-- end of itineraries pane-->
+
+  </div> <!-- end of sidebar -->
+
+</div>
+
 {% endblock %}

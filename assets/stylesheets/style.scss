@@ -1,6 +1,6 @@
-$fontColor: #DDE3F0;
-$navBarColor: #2d3e5c;
-$bodyColor: #1b2638;
+$fontColor: #DDE3F0;  // light blue
+$navBarColor: #2d3e5c; // dark blue
+$bodyColor: #1b2638; // deep dark blue
 
 html {
   font-family: 'Proxima Nova Soft', 'Helvetica Neue', Helvetica, sans-serif;
@@ -8,19 +8,29 @@ html {
 
 body {
   width:100vw;
-  height:100vh;
+  height:120vh;
   background-color: $bodyColor;
   overflow-x: hidden;
 }
 
 .pure-g {
-  height: 92vh;
+  height: 112vh;
 }
 
+.pure-u-sm-1 {
+  padding: 5% 10%;
+}
+
+// navigation bar and links
 .nav {
   height: 8vh;
   background-color: $navBarColor;
   font-size: 1.2em;
+  letter-spacing: 1.5px;
+}
+
+.pure-menu-list {
+  padding-left: 2%;
 }
 
 .pure-menu-link {
@@ -37,50 +47,56 @@ body {
 // drop down menu styling
 .styled-select {
   background-color: $navBarColor;
-  height: 29px;
+  height: 28px;
   overflow: hidden;
-  width: 85%;
+  width: 80%;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  display: inline-block; // aligns option field and add button
 }
 
 .styled-select select {
   background: transparent;
   border: none;
   font-size: 0.8em;
-  height: 29px;
-  padding: 5px;
+  height: 30px;
   width: 95%;
   color: $fontColor;
   letter-spacing: 1px;
 }
 
-button.add {
-//   border-radius: 25px;
-  height: 2%;
-  width: 2%;
-//   background-color: $fontColor;
-//   font-color: white;
-  // display: inline-block;
+// button styling
+.btn.btn-info.btn-circle {
+    border-radius: 50%; // circular button
+    width: 30px;
+    height: 30px;
+    background-color: $navBarColor;
+    border: none;
+    color: $fontColor;
+    vertical-align: top;
+    margin-left: 3%;
 }
 
+// resize icons
+.glyphicon {
+    font-size: 0.7em;
+}
+
+// text styling
 h1 {
-  font-size: 0.8em;
-  letter-spacing: 1.5px;
-  color: $fontColor;
-  font-weight: normal;
-  text-transform: uppercase;
-  line-height: 0%;
+    font-size: 0.9em;
+    letter-spacing: 1.5px;
+    color: $fontColor;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 0%;
+    margin-top: 5%;
 }
 
 h2 {
-  font-size: 1em;
-  letter-spacing: 1px;
-  color: $fontColor;
-  font-weight: normal;
-}
-
-.pure-u-sm-1 {
-  padding: 5% 10%;
+    font-size: 1em;
+    letter-spacing: 1.5px;
+    color: $fontColor;
+    font-weight: normal;
 }
