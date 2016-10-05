@@ -51,72 +51,96 @@ $(document).ready(function() {
     });
 
 
-  function createItineraryItem(name) {
-    var newItemDiv = document.createElement('DIV');
 
-    $(newItemDiv).addClass('itinerary-item');
-    $(newItemDiv).append('<div>' + name + '</div>');
-    $(newItemDiv).append('<button type="button" class="btn btn-info btn-circle add"><i class="glyphicon glyphicon-minus"></i></button>');
 
-    return newItemDiv;
-  }
+    $('.itineraryPanel').on('click', '.minus', function(e){
+      var minusButton = e.target;
 
-  function updateItinerary(type, obj) {
-    var newItem = createItineraryItem(obj.name); // create and append item
+      var itineraryDiv = $(minusButton).closest('div');
+      var nameDiv = $(itineraryDiv).find('div');
+      var name = $(nameDiv).html();
 
-    switch (type){
-      case "hotel":
-        if (!currentItinerary.hotel.length){
-          currentItinerary.hotel.push({ name: obj.name, location: obj.place.location });
-          $('.hotel-itinerary').append(newItem);
-        } else {
-          $('div.hotel-itinerary div.itinerary-item div').text(obj.name);
-          currentItinerary.hotel[0] = { name: obj.name, location: obj.place.location }; // update currentItinerary with new itinerary item
-        }
-        break;
-      case "restaurants":
-        // if there's duplicity, don't add again
-        if (currentItinerary.restaurantsArr.filter(r => r.name === obj.name).length === 0) {
-          currentItinerary.restaurantsArr.push({ name: obj.name, location: obj.place.location });
-          $('.restaurants-itinerary').append(newItem);
-        }
-        break;
-      case "activities":
-        if (currentItinerary.activitiesArr.filter(r => r.name === obj.name).length === 0) {
-          currentItinerary.activitiesArr.push({ name: obj.name, location: obj.place.location });
-          $('.activities-itinerary').append(newItem);
-        }
-        break;
+      // remove from DOM
+      $(itineraryDiv).remove();
+
+      // find marker, and marker.setMap(null)
+      for (let category in currentItinerary) { // category is array in object currentItinerary
+        console.log("category", category);
+        // console.log('CURRENT ITINERARY CATEGORY', currentItinerary[category]);
+        var desiredObject = currentItinerary[category].filter(obj => obj.name === name)[0]; // [{}][0] = {}
+          if (desiredObject) desiredObject.marker.setMap(null);
+        currentItinerary[category] = currentItinerary[category].filter(obj=> obj.name !== name);
+      } 
+
+
+      // remove from array
+
+
+    })
+
+    function createItineraryItem(name) {
+      var newItemDiv = document.createElement('DIV');
+
+      $(newItemDiv).addClass('itinerary-item');
+      $(newItemDiv).append('<div>' + name + '</div>');
+      $(newItemDiv).append('<button type="button" class="btn btn-info btn-circle minus"><i class="glyphicon glyphicon-minus"></i></button>');
+
+      return newItemDiv;
     }
 
-    // removes obj (validation, duplicates)
-      // removes DOM node
-  }
-
-  // after a new itinerary item is added, new markers are added to the map
-  function updateMap() {
-    // create new markers
-    for (let category in currentItinerary) { // category is array in object currentItinerary
-      for (let item of currentItinerary[category]) { // item is obj in array category
-        addMapMarker(item); // add markers for each itinerary item based on geo coords
+    function updateItinerary(type, obj) {
+      var newItem = createItineraryItem(obj.name); // create and append item
+      var marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(obj.place.location[0], obj.place.location[1]),
+                                      });
+      switch (type){
+        case "hotel":
+          if (!currentItinerary.hotel.length){
+            currentItinerary.hotel.push({ name: obj.name, marker: marker });
+            $('.hotel-itinerary').append(newItem);
+          } else {
+            currentItinerary.hotel[0].marker.setMap(null);
+            $('div.hotel-itinerary div.itinerary-item div').text(obj.name);
+            currentItinerary.hotel[0] = { name: obj.name, marker: marker }; // update currentItinerary with new itinerary item
+          }
+          break;
+        case "restaurants":
+          // if there's duplicity, don't add again
+          if (currentItinerary.restaurantsArr.filter(r => r.name === obj.name).length === 0) {
+            currentItinerary.restaurantsArr.push({ name: obj.name, marker: marker });
+            $('.restaurants-itinerary').append(newItem);
+          }
+          break;
+        case "activities":
+          if (currentItinerary.activitiesArr.filter(r => r.name === obj.name).length === 0) {
+            currentItinerary.activitiesArr.push({ name: obj.name, marker: marker });
+            $('.activities-itinerary').append(newItem);
+          }
+          break;
       }
+
+      // removes obj (validation, duplicates)
+        // removes DOM node
     }
 
+    // after a new itinerary item is added, new markers are added to the map
+    function updateMap() {
+      // create new markers 
+      var bounds = new google.maps.LatLngBounds();
 
-    // zoom map accordingly to fit scope of the markers
-    map.fitBounds()
-  }
+      for (let category in currentItinerary) { // category is array in object currentItinerary
+        for (let item of currentItinerary[category]) { // item is obj in array category
+          bounds.extend(item.marker.position);
+          item.marker.setMap(map); // add markers for each itinerary item based on geo coords
+        }
+      }
+
+      // zoom map accordingly to fit scope of the markers
+      map.fitBounds(bounds)
+    }
+
 
 });
 
 
-// generate a new map marker based on the itinerary item's location coordinates
-function addMapMarker(obj) {
-  var newLocation = new google.maps.LatLng(obj.location[0], obj.location[1]);
-  var marker = new google.maps.Marker({
-    position: newLocation,
-  });
 
-  markerArr.push(marker);
-  marker.setMap(map);
-}
