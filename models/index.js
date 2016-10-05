@@ -1,47 +1,12 @@
-var Sequelize = require('sequelize');
-var db = new Sequelize('postgres://localhost:5432/tripplanner');
+var db = require('./_db');
 
-var Place = db.define('place', {
-  address: Sequelize.STRING,
-  city: Sequelize.STRING,
-  state: Sequelize.STRING,
-  phone: Sequelize.STRING,
-  location: Sequelize.ARRAY(Sequelize.FLOAT)
-});
-
-var Hotel = db.define('hotel', {
-  name: Sequelize.STRING,
-  num_stars: {
-    type: Sequelize.INTEGER,
-    validate: { min: 1, max: 5 }
-  },
-  amenities: Sequelize.STRING
-});
-
-var Restaurant = db.define('restaurant', {
-  name: Sequelize.STRING,
-  cuisine: Sequelize.STRING,
-  price: {
-    type: Sequelize.INTEGER,
-    validate: { min: 1, max: 5 }
-  }
-});
-
-var Activity = db.define('activity', {
-  name: Sequelize.STRING,
-  age_range: Sequelize.STRING,
-});
-
+var Place = require('./place');
+var Hotel = require('./hotel');
+var Restaurant = require('./restaurant');
+var Activity = require('./activity');
 
 Hotel.belongsTo(Place);
 Restaurant.belongsTo(Place);
 Activity.belongsTo(Place);
 
-
-module.exports = {
-  Place: Place,
-  Hotel: Hotel,
-  Restaurant: Restaurant,
-  Activity: Activity,
-  db: db
-}
+module.exports = db;
