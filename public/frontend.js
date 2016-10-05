@@ -1,3 +1,10 @@
+// keeping track of our current itinerary:
+var currentItinerary = {
+                          hotel: null, //  {name: 'something', location {20.74, 40.83}}
+                          restaurantsArr: [], // { name: 'something', location: {20.74, 40.83} }
+                          activitiesArr: []
+                        }
+
 // generate option tags for index.html
 $(document).ready(function() {
 
@@ -19,17 +26,6 @@ $(document).ready(function() {
       $('#activitiesSelect select').append(createOption);
     }
 
-    // keeping track of our current itinerary:
-    var currentItinerary = {
-                              hotel: null,
-                              restaurantsArr: [],
-                              activitiesArr: []
-                            }
-
-    //  logging the selected hotel's name whenever the adjacent add button is clicked
-    // when a plus button is clicked, look at parent div
-    // then find nearest select text
-    // console log the text
 
     $('.add').click(function() {
         var parent = $(this).parent(); // parent object: for ex <div id="hotelSelect"></div>
@@ -51,51 +47,43 @@ $(document).ready(function() {
                 updateItinerary('activities', foundObj);
                 break;
         }
-
-        
         // updateMap();
-
-    })
-
-    // find category of foundObj in itineraryPanel
-    // append rectangle & remove button to the corresponding itinterary item
-    //$()
-    //  <!-- <button type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-minus"></i></button>-->
-
-
-
+    });
 
 
   function createItineraryItem(name) {
     var newItemDiv = document.createElement('DIV');
-    
+
     $(newItemDiv).addClass('itinerary-item');
     $(newItemDiv).append('<div>' + name + '</div>');
     $(newItemDiv).append('<button type="button" class="btn btn-info btn-circle add"><i class="glyphicon glyphicon-minus"></i></button>');
-    
+
     return newItemDiv;
   }
 
   function updateItinerary(type, obj) {
+    var newItem = createItineraryItem(obj.name); // create and append item
 
     switch (type){
       case "hotel":
         console.log("adding hotel,", obj);
         if (!currentItinerary.hotel){
-          // define itinerary hotel as obj
-          currentItinerary.hotel = obj;
-
-          // create and append item
-          var newItem = createItineraryItem(obj.name);
+          currentItinerary.hotel = { name: obj.name, location: obj.location };
           $('.hotel-itinerary').append(newItem);
         } else {
           $('div.itinerary-item div').text(obj.name);
         }
-
         break;
       case "restaurants":
+        // if there's duplicity, don't add again
+        if (currentItinerary.restaurantsArr.indexOf(r => { r.name === obj.name }) === -1) {
+          currentItinerary.restaurantsArr.push({ name: obj.name, location: obj.place.location });
+          $('.restaurants-itinerary').append(newItem);
+        }
         break;
       case "activities":
+        currentItinerary.activitiesArr.push({ name: obj.name, location: obj.place.location });
+        $('.activities-itinerary').append(newItem);
         break;
     }
 
@@ -109,7 +97,7 @@ $(document).ready(function() {
   }
 
   function updateMap() {
-    
+
   }
 
 
@@ -119,20 +107,3 @@ $(document).ready(function() {
 
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
