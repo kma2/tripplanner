@@ -19,7 +19,7 @@ app.use('/public', Express.static(__dirname + '/public/'));
 app.get('/', function(req,res,next) {
 	Promise.all([Hotel.findAll({}), Activity.findAll({}), Restaurant.findAll({})])
 	.spread(function(hotel_result, activity_result, restaurant_result) {
-		res.render('basic_template', { hotels: hotel_result, restaurants: restaurant_result,
+		res.render('index', { hotels: hotel_result, restaurants: restaurant_result,
 		activities: activity_result });
 	});
 });
